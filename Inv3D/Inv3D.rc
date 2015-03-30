@@ -1,0 +1,882 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\Inv3D.ico"
+IDR_Inv3DTYPE           ICON                    "res\\Inv3DDoc.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR 16, 15
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVE
+    SEPARATOR
+    BUTTON      ID_EDIT_COLORS
+    BUTTON      ID_EDIT_FIELD
+    SEPARATOR
+    BUTTON      ID_MODEL_FIRST
+    BUTTON      ID_MODEL_PREVIOUS
+    BUTTON      ID_MODEL_NEXT
+    BUTTON      ID_MODEL_LAST
+    SEPARATOR
+    BUTTON      ID_VIEW_SHOWTEXT
+    BUTTON      ID_VIEW_SHOW_VOXELS
+    BUTTON      ID_VIEW_SHOW_SLICES
+    BUTTON      ID_VIEW_SHOW_FIELD
+    BUTTON      ID_VIEW_TRESHOLD_APPLY
+    SEPARATOR
+    BUTTON      ID_VIEW_SLICE_NEW
+    BUTTON      ID_VIEW_SLICE_PREVIOUS
+    BUTTON      ID_VIEW_SLICE_NEXT
+    BUTTON      ID_VIEW_SLICE_PREVIOUS_ACTIVATE
+    BUTTON      ID_VIEW_SLICE_NEXT_ACTIVATE
+    SEPARATOR
+    BUTTON      ID_WINDOW_TILE_VERT
+    BUTTON      ID_WINDOW_TILE_HORZ
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM SEPARATOR
+        MENUITEM "P&rint Setup...",             ID_FILE_PRINT_SETUP
+        MENUITEM SEPARATOR
+        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "&Close",                      ID_FILE_CLOSE
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR
+        MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About Inv3D...",             ID_APP_ABOUT
+    END
+END
+
+IDR_Inv3DTYPE MENU
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM "&Close",                      ID_FILE_CLOSE
+        MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
+        MENUITEM "Save &As...",                 ID_FILE_SAVE_AS
+        MENUITEM SEPARATOR
+        MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
+        MENUITEM "Print Pre&view",              ID_FILE_PRINT_PREVIEW
+        MENUITEM "P&rint Setup...",             ID_FILE_PRINT_SETUP
+        MENUITEM SEPARATOR
+        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "Voxel Colors",                ID_EDIT_COLORS
+        MENUITEM "Slices",                      ID_EDIT_SLICES
+        MENUITEM "Field",                       ID_EDIT_FIELD
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR
+        MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+        MENUITEM SEPARATOR
+        MENUITEM "Show Text",                   ID_VIEW_SHOWTEXT
+        MENUITEM "Show Voxels",                 ID_VIEW_SHOW_VOXELS
+        MENUITEM "Show Slices",                 ID_VIEW_SHOW_SLICES
+        MENUITEM "Show Field",                  ID_VIEW_SHOW_FIELD
+        MENUITEM SEPARATOR
+        MENUITEM "New Slice",                   ID_VIEW_SLICE_NEW
+        MENUITEM "Previous Slice\tCtrl+K",      ID_VIEW_SLICE_PREVIOUS_ACTIVATE
+        MENUITEM "Next Slice\tCtrl+L",          ID_VIEW_SLICE_NEXT_ACTIVATE
+        MENUITEM "Activate Previous Slice\tCtrl+Shift+K", ID_VIEW_SLICE_PREVIOUS_ACTIVATE
+        MENUITEM "Activate Next Slice\tCtrl+Shift+L", ID_VIEW_SLICE_NEXT_ACTIVATE
+        MENUITEM SEPARATOR
+        MENUITEM "Apply Treshold",              ID_VIEW_TRESHOLD_APPLY
+    END
+    POPUP "Model"
+    BEGIN
+        MENUITEM "Define",                      ID_MODEL_DEFINE
+        MENUITEM "Invert",                      ID_MODEL_INVERT
+        MENUITEM SEPARATOR
+        MENUITEM "Load Foward Model",           ID_MODEL_LOAD_FOWARD
+        MENUITEM "Save Forward Model",          ID_MODEL_SAVE_FORWARD
+        MENUITEM SEPARATOR
+        MENUITEM "First",                       ID_MODEL_FIRST
+        MENUITEM "Previous",                    ID_MODEL_PREVIOUS
+        MENUITEM "Next",                        ID_MODEL_NEXT
+        MENUITEM "Last",                        ID_MODEL_LAST
+    END
+    POPUP "&Window"
+    BEGIN
+        MENUITEM "&New Window",                 ID_WINDOW_NEW
+        MENUITEM "&Cascade",                    ID_WINDOW_CASCADE
+        MENUITEM "&Tile Horizontal",            ID_WINDOW_TILE_HORZ
+        MENUITEM "Tile Vertical",               57652
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About Inv3D...",             ID_APP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS
+BEGIN
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
+    "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL, NOINVERT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
+    "L",            ID_VIEW_SLICE_NEXT,     VIRTKEY, CONTROL, NOINVERT
+    "K",            ID_VIEW_SLICE_PREVIOUS, VIRTKEY, CONTROL, NOINVERT
+    "L",            ID_VIEW_SLICE_NEXT_ACTIVATE, VIRTKEY, SHIFT, CONTROL, NOINVERT
+    "K",            ID_VIEW_SLICE_PREVIOUS_ACTIVATE, VIRTKEY, SHIFT, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 235, 55
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About Inv3D"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "Inv3D Version 1.0",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2004",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "OK",IDOK,178,7,50,16,WS_GROUP
+END
+
+IDR_MAINFRAME DIALOGEX 0, 0, 418, 16
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    LTEXT           "Focusing",IDC_STATIC,153,6,29,8
+    LTEXT           "Treshold",IDC_STATIC,224,6,28,8
+    EDITTEXT        IDC_EDIT_TRESHOLD,253,0,28,14,ES_AUTOHSCROLL
+    COMBOBOX        IDC_COMBO_FOCUSING,184,2,28,82,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Rows",IDC_STATIC,6,6,18,8
+    COMBOBOX        IDC_COMBO_ROWS,26,2,28,82,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Cols",IDC_STATIC,63,6,14,8
+    COMBOBOX        IDC_COMBO_COLS,80,2,28,82,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_COLOR_GRAD DIALOGEX 0, 0, 373, 214
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Gradient color controll"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Close",IDOK,309,163,41,14
+    GROUPBOX        "Add new peg at",IDC_STATIC,223,7,131,32
+    PUSHBUTTON      "Add",IDC_ADD_PEG,309,19,41,14
+    EDITTEXT        IDC_NEWPEG_POSITION,229,19,32,14,ES_AUTOHSCROLL | ES_NUMBER
+    PUSHBUTTON      "Color...",IDC_NEWPEG_COLOUR,265,19,41,14
+    GROUPBOX        "Edit peg at",IDC_SELPEG,223,43,132,46
+    EDITTEXT        IDC_SELPEG_POSITION,229,55,32,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Color...",IDC_SELPEG_COLOUR,265,55,41,14
+    PUSHBUTTON      "Delete",IDC_DEL_PEG,309,55,41,14
+    CONTROL         "Gradient",IDC_GRADIENT,"MFCGradientCtrl",WS_TABSTOP,7,7,212,177,WS_EX_CLIENTEDGE
+    COMBOBOX        IDC_METHOD_COMBO,229,105,68,108,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Interpolation method",IDC_STATIC,229,94,68,8
+    CONTROL         "Show Tips",IDC_SHOWTOOLTIPS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,305,105,48,10
+    PUSHBUTTON      "Save",IDC_SAVE,309,123,41,14
+    PUSHBUTTON      "Load",IDC_LOAD,309,138,41,14
+    LTEXT           "Thanks to Joel Holdsworth for this nice gradient controll!\nwww.codeproject.com",IDC_STATIC,231,179,126,29
+    EDITTEXT        IDC_VALUE,229,71,78,14,ES_AUTOHSCROLL
+    LTEXT           "extern value",IDC_STATIC,310,74,42,8
+END
+
+IDD_DLG_DEFINE_MODEL DIALOGEX 0, 0, 403, 227
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Define model"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    GROUPBOX        "Model type",IDC_STATIC,7,7,72,41
+    CONTROL         "2D",IDC_MOD_TYPE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,15,18,25,10
+    CONTROL         "3D",IDC_MOD_TYPE_3D,"Button",BS_AUTORADIOBUTTON,15,31,25,10
+    GROUPBOX        "Field",IDC_STATIC,113,7,72,41
+    CONTROL         "gravity",IDC_MOD_GRAVITY,"Button",BS_AUTORADIOBUTTON | WS_DISABLED | WS_GROUP,118,18,39,10
+    CONTROL         "magnetics",IDC_MOD_MAGNETICS,"Button",BS_AUTORADIOBUTTON | WS_DISABLED,118,31,48,10
+    GROUPBOX        "Model extent",IDC_STATIC,7,54,177,89
+    LTEXT           "Cells",IDC_STATIC,14,76,16,8
+    LTEXT           "Origin",IDC_STATIC,14,92,20,8
+    LTEXT           "Cell sizes",IDC_STATIC,14,108,30,8
+    LTEXT           "x",IDC_STATIC,69,61,8,8
+    LTEXT           "y",IDC_STATIC,113,61,8,8
+    LTEXT           "z",IDC_STATIC,154,61,8,8
+    EDITTEXT        IDC_NX,50,70,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_X0,50,86,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_XCS,50,102,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_NY,94,70,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_Y0,94,86,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_YCS,94,102,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_NZ,138,70,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_Z0,138,86,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ZCS,138,102,40,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Create model",IDC_CREATE_MODEL,7,151,52,14
+    PUSHBUTTON      "Penalization",IDC_PENALIZATION,7,183,52,14
+    GROUPBOX        "Input / Output",IDC_STATIC,194,7,195,102
+    LTEXT           "Measurements",IDC_STATIC,202,26,48,8
+    EDITTEXT        IDC_MODEL_PTS,252,20,95,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "Browse",IDC_BROWSE_MEASUREMENTS,350,20,33,14,WS_DISABLED
+    LTEXT           "Matrix",IDC_STATIC,202,41,21,8
+    EDITTEXT        IDC_MODEL_MATRIX,252,35,95,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "Browse",IDC_BROWSE_MATRIX,350,35,33,14,WS_DISABLED
+    LTEXT           "Name",IDC_STATIC,202,76,19,8
+    EDITTEXT        IDC_MODEL_NAME,252,70,95,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "Browse",IDC_BROWSE_MODEL_NAME,350,70,33,14
+    LTEXT           "Temp. dir.",IDC_STATIC,202,91,34,8
+    EDITTEXT        IDC_TEMP_DIR,252,85,95,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "Browse",IDC_BROWSE_TEMP_DIR,350,85,33,14,WS_DISABLED
+    GROUPBOX        "Memory costs",IDC_STATIC,194,118,195,97
+    LTEXT           "Total",IDC_STATIC,200,138,17,8
+    EDITTEXT        IDC_MEM_TOTAL,226,132,157,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Matrix",IDC_STATIC,200,153,21,8
+    EDITTEXT        IDC_MEM_MATRIX,226,147,157,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Model",IDC_STATIC,200,168,20,8
+    EDITTEXT        IDC_MEM_MODEL,226,162,157,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Data",IDC_STATIC,200,183,16,8
+    EDITTEXT        IDC_MEM_DATA,226,177,157,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Other",IDC_STATIC,200,198,20,8
+    EDITTEXT        IDC_MEM_OTHER,226,192,157,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "Forward model",IDC_FORWARD_MODEL,7,167,52,14
+    PUSHBUTTON      "OK",IDOK,133,190,52,14
+    PUSHBUTTON      "Cancel",IDCANCEL,133,164,52,14
+    LTEXT           "Penalization",IDC_STATIC,202,55,39,8
+    EDITTEXT        IDC_MODEL_PENAL,252,50,95,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "Browse",IDC_BROWSE_PENAL,350,50,33,14,WS_DISABLED
+    EDITTEXT        IDC_MODEL_GRID,50,122,84,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "From Grid",IDC_STATIC,14,128,32,8
+    PUSHBUTTON      "Browse",IDC_BROWSE_MODEL,139,122,40,14
+END
+
+IDD_DLG_FORWARD_MODEL DIALOGEX 0, 0, 221, 204
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Define forward model"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    GROUPBOX        "Measurement points",IDC_STATIC,7,7,199,54
+    LTEXT           "nx",IDC_STATIC,33,25,8,8
+    EDITTEXT        IDC_PTS_X,56,19,40,14,ES_AUTOHSCROLL
+    LTEXT           "ny",IDC_STATIC,33,41,8,8
+    EDITTEXT        IDC_PTS_Y,56,35,40,14,ES_AUTOHSCROLL
+    LTEXT           "Elevation",IDC_STATIC,118,25,30,8
+    LTEXT           "Noise [%]",IDC_STATIC,118,41,33,8
+    EDITTEXT        IDC_PTS_ELEV,156,19,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PTS_NOISE,156,35,40,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Create",IDC_CREATE_FRW_MODEL,85,65,50,14
+    GROUPBOX        "Set Model",IDC_STATIC,7,86,199,92
+    LTEXT           "x",IDC_STATIC,70,96,8,8
+    LTEXT           "y",IDC_STATIC,126,96,8,8
+    LTEXT           "z",IDC_STATIC,185,96,8,8
+    LTEXT           "min. range",IDC_STATIC,15,112,35,8
+    LTEXT           "max. range",IDC_STATIC,15,127,38,8
+    LTEXT           "Set model",IDC_STATIC,16,142,32,8
+    EDITTEXT        IDC_X_MIN,56,106,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_X_MAX,56,121,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_Y_MIN,106,106,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_Y_MAX,106,121,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_Z_MIN,156,106,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_Z_MAX,156,121,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_MOD_VAL,56,136,40,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Set Value",IDC_SET_MODEL,106,136,40,14
+    PUSHBUTTON      "Initialize",IDC_INIT_MOD,56,157,40,14
+    PUSHBUTTON      "Add Noise",IDC_ADD_NOISE,106,157,40,14
+    DEFPUSHBUTTON   "Close",IDOK,86,183,50,14
+END
+
+IDD_DLG_INVERT DIALOGEX 0, 0, 386, 219
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Inversion"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    GROUPBOX        "Conjugate gradients",IDC_STATIC,7,7,151,79
+    LTEXT           "max iter",IDC_STATIC,16,25,27,8
+    EDITTEXT        IDC_ITER_CG,44,19,40,14,ES_AUTOHSCROLL
+    LTEXT           "eps",IDC_STATIC,16,40,12,8
+    EDITTEXT        IDC_CG_EPS,44,34,40,14,ES_AUTOHSCROLL
+    LTEXT           "restart",IDC_STATIC,16,54,23,8
+    EDITTEXT        IDC_CG_RESTART,44,49,40,14,ES_AUTOHSCROLL
+    CONTROL         "Preconditioned",IDC_INVERT_PRECOND_DIAG,"Button",BS_AUTORADIOBUTTON | WS_GROUP,92,22,63,10
+    CONTROL         "Regularized",IDC_INV_REGULARIZED,"Button",BS_AUTORADIOBUTTON,92,35,53,10
+    CONTROL         "Normal",IDC_INVERT_NORMAL,"Button",BS_AUTORADIOBUTTON,92,48,38,10
+    GROUPBOX        "Focusing",IDC_STATIC,167,7,91,79
+    LTEXT           "max iter",IDC_STATIC,175,23,27,8
+    EDITTEXT        IDC_ITER_FCS,206,17,40,14,ES_AUTOHSCROLL
+    LTEXT           "power",IDC_STATIC,175,38,21,8
+    EDITTEXT        IDC_FCS_POW,206,32,40,14,ES_AUTOHSCROLL
+    CONTROL         "Matrix disk storage",IDC_DISK_MATRIX,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,176,50,77,10
+    CONTROL         "Matrix shrinking",IDC_MATRIX_SHRINK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,176,61,66,10
+    CONTROL         "Save while focusing",IDC_FOCUSING_MODEL_SAVE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,176,72,79,10
+    PUSHBUTTON      "Invert!",IDC_INVERT,299,70,47,14
+    GROUPBOX        "Transparency",IDC_STATIC,267,7,106,60
+    LTEXT           "Opacity",IDC_STATIC,276,49,26,8
+    EDITTEXT        IDC_DLGINV_OPACITY,303,43,40,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Set",IDC_DLGINV_OPACITY_SET,344,43,16,14
+    GROUPBOX        "Progress",IDC_STATIC,7,92,151,116
+    LTEXT           "Focusing",IDC_STATIC,15,106,29,8
+    CONTROL         "",IDC_PROGRESS_FOCUS,"msctls_progress32",WS_BORDER,48,103,99,14
+    EDITTEXT        IDC_STR_FOCUSING,12,118,135,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "CG",IDC_STATIC,15,140,10,8
+    CONTROL         "",IDC_PROGRESS_CG,"msctls_progress32",WS_BORDER,48,136,99,14
+    EDITTEXT        IDC_STR_CG,12,151,135,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Init",IDC_STATIC,15,175,12,8
+    CONTROL         "",IDC_PROGRESS_INIT,"msctls_progress32",WS_BORDER,48,174,99,14
+    EDITTEXT        IDC_STR_INIT,12,188,135,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "Close",IDOK,350,201,32,14
+    LTEXT           "reg. miu",IDC_STATIC,16,69,27,8
+    EDITTEXT        IDC_REG_MIU,44,64,40,14,ES_AUTOHSCROLL
+    CONTROL         "Alpha",IDC_TRANSP_ALPHA,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,274,19,34,10
+    CONTROL         "Color",IDC_TRANSP_COLOR,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,274,31,33,10
+END
+
+IDD_DLG_SLICE DIALOGEX 0, 0, 136, 70
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Slice Properties"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,79,28,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,79,44,50,14
+    LTEXT           "Profile",IDC_STATIC,7,33,21,8
+    EDITTEXT        IDC_PROFILE,29,28,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ALPHA,29,44,40,14,ES_AUTOHSCROLL
+    LTEXT           "Alpha",IDC_STATIC,7,49,19,8
+    CONTROL         "xz",IDC_TYPE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,7,7,23,10
+    CONTROL         "yz",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,56,7,23,10
+    CONTROL         "xy",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,105,7,24,10
+END
+
+IDD_DLG_SLICE_MANAGER DIALOGEX 0, 0, 209, 148
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Slices Manager"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,152,110,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,152,127,50,14
+    LISTBOX         IDC_LIST,7,7,140,132,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Properties",IDC_PROPERTIES,152,7,50,14
+    PUSHBUTTON      "Add",IDC_ADD,152,30,50,14
+    PUSHBUTTON      "Delete",IDC_DELETE,152,53,50,14
+    PUSHBUTTON      "Set as current",IDC_CURRENT,152,76,50,14
+END
+
+IDD_GRID_PROPERTIES DIALOGEX 0, 0, 217, 182
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Grid properties"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_NAME,7,6,203,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "x",IDC_STATIC,48,25,8,8
+    LTEXT           "y",IDC_STATIC,122,25,8,8
+    LTEXT           "z",IDC_STATIC,181,25,8,8
+    LTEXT           "min",IDC_STATIC,20,44,12,8
+    EDITTEXT        IDC_MIN_X,36,37,52,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_MIN_Y,96,36,52,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_MIN_Z,158,37,52,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "max",IDC_STATIC,18,58,14,8
+    EDITTEXT        IDC_MAX_X,36,52,52,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_MAX_Y,96,52,52,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_MAX_Z,158,52,52,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "cell size",IDC_STATIC,7,73,25,8
+    EDITTEXT        IDC_CS_X,36,67,52,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_CS_Y,96,66,52,14,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "File",IDC_STATIC,20,92,12,8
+    EDITTEXT        IDC_FILE_PATH,36,87,137,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "Save",IDC_BROWSE,182,87,28,14
+    PUSHBUTTON      "Color Table",IDC_COLOR_TABLE,36,106,50,14
+    CONTROL         "Histogram color distribution",IDC_HST_EQ,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,89,108,103,10
+    GROUPBOX        "Custom Data Range",IDC_STATIC,7,126,150,48
+    CONTROL         "Enabled",IDC_CUSTOM_ENABLE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,138,41,10
+    LTEXT           "Min",IDC_STATIC,81,143,12,8
+    EDITTEXT        IDC_CUSTOM_MIN,96,137,52,14,ES_AUTOHSCROLL
+    LTEXT           "Max",IDC_STATIC,79,159,14,8
+    EDITTEXT        IDC_CUSTOM_MAX,96,153,52,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Close",IDOK,160,160,50,14
+END
+
+IDD_DLG_PENAL DIALOGEX 0, 0, 186, 130
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Set cell penalization"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "x",IDC_STATIC,61,7,8,8
+    LTEXT           "y",IDC_STATIC,111,7,8,8
+    LTEXT           "z",IDC_STATIC,155,7,8,8
+    LTEXT           "min. range",IDC_STATIC,7,23,35,8
+    LTEXT           "max. range",IDC_STATIC,7,36,38,8
+    EDITTEXT        IDC_X_MIN,47,15,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_X_MAX,47,31,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_Y_MIN,91,15,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_Y_MAX,91,31,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_Z_MIN,136,15,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_Z_MAX,136,31,40,14,ES_AUTOHSCROLL
+    LTEXT           "penalization minimum",IDC_STATIC,7,71,68,8
+    LTEXT           "penalization maximum",IDC_STATIC,7,87,70,8
+    EDITTEXT        IDC_PEN_MIN,91,66,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PEN_MAX,91,82,40,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Set Value",IDC_SET_PENVAL,136,74,40,14
+    DEFPUSHBUTTON   "Close",IDOK,136,109,40,14
+    PUSHBUTTON      "Whole model",IDC_WHOLE_MODEL,47,46,129,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904e4"
+        BEGIN
+            VALUE "CompanyName", "TODO: <Company name>"
+            VALUE "FileDescription", "TODO: <File description>"
+            VALUE "FileVersion", "1.0.0.1"
+            VALUE "InternalName", "Inv3D.exe"
+            VALUE "LegalCopyright", "TODO: (c) <Company name>.  All rights reserved."
+            VALUE "OriginalFilename", "Inv3D.exe"
+            VALUE "ProductName", "TODO: <Product name>"
+            VALUE "ProductVersion", "1.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_COLOR_GRAD, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 366
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 207
+    END
+
+    IDD_DLG_DEFINE_MODEL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 396
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 220
+    END
+
+    IDD_DLG_FORWARD_MODEL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 214
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 197
+    END
+
+    IDD_DLG_INVERT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 382
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 215
+    END
+
+    IDD_DLG_SLICE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 129
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 63
+    END
+
+    IDD_DLG_SLICE_MANAGER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 202
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 141
+    END
+
+    IDD_GRID_PROPERTIES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        TOPMARGIN, 7
+    END
+
+    IDD_DLG_PENAL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 123
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDR_MAINFRAME DLGINIT
+BEGIN
+    IDC_COMBO_FOCUSING, 0x403, 2, 0
+0x0031, 
+    IDC_COMBO_FOCUSING, 0x403, 2, 0
+0x0032, 
+    IDC_COMBO_FOCUSING, 0x403, 2, 0
+0x0033, 
+    IDC_COMBO_FOCUSING, 0x403, 2, 0
+0x0034, 
+    IDC_COMBO_FOCUSING, 0x403, 2, 0
+0x0035, 
+    IDC_COMBO_FOCUSING, 0x403, 2, 0
+0x0036, 
+    IDC_COMBO_FOCUSING, 0x403, 2, 0
+0x0037, 
+    IDC_COMBO_FOCUSING, 0x403, 2, 0
+0x0038, 
+    IDC_COMBO_FOCUSING, 0x403, 2, 0
+0x0039, 
+    IDC_COMBO_FOCUSING, 0x403, 3, 0
+0x3031, "\000" 
+    IDC_COMBO_ROWS, 0x403, 2, 0
+0x0031, 
+    IDC_COMBO_ROWS, 0x403, 2, 0
+0x0032, 
+    IDC_COMBO_ROWS, 0x403, 2, 0
+0x0033, 
+    IDC_COMBO_ROWS, 0x403, 2, 0
+0x0034, 
+    IDC_COMBO_COLS, 0x403, 2, 0
+0x0031, 
+    IDC_COMBO_COLS, 0x403, 2, 0
+0x0032, 
+    IDC_COMBO_COLS, 0x403, 2, 0
+0x0033, 
+    IDC_COMBO_COLS, 0x403, 2, 0
+0x0034, 
+    0
+END
+
+IDD_COLOR_GRAD DLGINIT
+BEGIN
+    IDC_METHOD_COMBO, 0x403, 7, 0
+0x694c, 0x656e, 0x7261, "\000" 
+    IDC_METHOD_COMBO, 0x403, 11, 0
+0x6c46, 0x7461, 0x5320, 0x6174, 0x7472, "\000" 
+    IDC_METHOD_COMBO, 0x403, 12, 0
+0x6c46, 0x7461, 0x4d20, 0x6469, 0x6c64, 0x0065, 
+    IDC_METHOD_COMBO, 0x403, 9, 0
+0x6c46, 0x7461, 0x4520, 0x646e, "\000" 
+    IDC_METHOD_COMBO, 0x403, 7, 0
+0x6f43, 0x6973, 0x656e, "\000" 
+    IDC_METHOD_COMBO, 0x403, 14, 0
+0x5348, 0x204c, 0x6c43, 0x636f, 0x776b, 0x7369, 0x0065, 
+    IDC_METHOD_COMBO, 0x403, 19, 0
+0x5348, 0x204c, 0x6e41, 0x6974, 0x432d, 0x6f6c, 0x6b63, 0x6977, 0x6573, 
+"\000" 
+    IDC_METHOD_COMBO, 0x403, 13, 0
+0x5348, 0x204c, 0x6853, 0x726f, 0x6574, 0x7473, "\000" 
+    IDC_METHOD_COMBO, 0x403, 12, 0
+0x5348, 0x204c, 0x6f4c, 0x676e, 0x7365, 0x0074, 
+    IDC_METHOD_COMBO, 0x403, 8, 0
+0x6552, 0x6576, 0x7372, 0x0065, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDR_MAINFRAME           "Inv3D"
+    IDR_Inv3DTYPE           "\nInv3D\nInv3D\nInv3D Files (*.i3d)\n.i3d\nInv3D.Document\nInv3D.Document"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_APP_TITLE       "Inv3D"
+    AFX_IDS_IDLEMESSAGE     "Ready"
+END
+
+STRINGTABLE
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_NEW             "Create a new document\nNew"
+    ID_FILE_OPEN            "Open an existing document\nOpen"
+    ID_FILE_CLOSE           "Close the active document\nClose"
+    ID_FILE_SAVE            "Save the active document\nSave"
+    ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
+    ID_FILE_PAGE_SETUP      "Change the printing options\nPage Setup"
+    ID_FILE_PRINT_SETUP     "Change the printer and printing options\nPrint Setup"
+    ID_FILE_PRINT           "Print the active document\nPrint"
+    ID_FILE_PRINT_PREVIEW   "Display full pages\nPrint Preview"
+END
+
+STRINGTABLE
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
+    ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
+END
+
+STRINGTABLE
+BEGIN
+    ID_FILE_MRU_FILE1       "Open this document"
+    ID_FILE_MRU_FILE2       "Open this document"
+    ID_FILE_MRU_FILE3       "Open this document"
+    ID_FILE_MRU_FILE4       "Open this document"
+    ID_FILE_MRU_FILE5       "Open this document"
+    ID_FILE_MRU_FILE6       "Open this document"
+    ID_FILE_MRU_FILE7       "Open this document"
+    ID_FILE_MRU_FILE8       "Open this document"
+    ID_FILE_MRU_FILE9       "Open this document"
+    ID_FILE_MRU_FILE10      "Open this document"
+    ID_FILE_MRU_FILE11      "Open this document"
+    ID_FILE_MRU_FILE12      "Open this document"
+    ID_FILE_MRU_FILE13      "Open this document"
+    ID_FILE_MRU_FILE14      "Open this document"
+    ID_FILE_MRU_FILE15      "Open this document"
+    ID_FILE_MRU_FILE16      "Open this document"
+END
+
+STRINGTABLE
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE
+BEGIN
+    ID_WINDOW_NEW           "Open another window for the active document\nNew Window"
+    ID_WINDOW_ARRANGE       "Arrange icons at the bottom of the window\nArrange Icons"
+    ID_WINDOW_CASCADE       "Arrange windows so they overlap\nCascade Windows"
+    ID_WINDOW_TILE_HORZ     "Arrange windows as non-overlapping tiles\nTile Windows"
+    ID_WINDOW_TILE_VERT     "Arrange windows as non-overlapping tiles\nTile Windows"
+    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+END
+
+STRINGTABLE
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_FIND            "Find the specified text\nFind"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
+    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+END
+
+STRINGTABLE
+BEGIN
+    ID_VIEW_TOOLBAR         "Show or hide the toolbar\nToggle ToolBar"
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+    AFX_IDS_MDICHILD        "Activate this window"
+END
+
+STRINGTABLE
+BEGIN
+    AFX_IDS_PREVIEW_CLOSE   "Close print preview mode\nCancel Preview"
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Italian (Italy) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ITA)
+LANGUAGE LANG_ITALIAN, SUBLANG_ITALIAN
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#include ""res\\Inv3D.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#include ""afxprint.rc""       // printing/print preview resources\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // Italian (Italy) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#include "res\Inv3D.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#include "afxprint.rc"       // printing/print preview resources
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
