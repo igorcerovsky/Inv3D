@@ -89,7 +89,7 @@ END_MESSAGE_MAP()
 //______________________________________________________________________________
 void CViewGL::OnEditchangeTreshold()
 {
-	TRACE(_T("InAI"));
+	//TRACE("InAI");
 	CMainFrame* pMain;
 	double a;
 
@@ -259,7 +259,7 @@ CViewGL::CViewGL()
 	m_lf.lfClipPrecision=CLIP_DEFAULT_PRECIS; 
 	m_lf.lfQuality=DEFAULT_QUALITY;
 	m_lf.lfPitchAndFamily=DEFAULT_PITCH |FF_DONTCARE;
-	strcpy(CT2A(m_lf.lfFaceName), "Arial");        
+	strcpy_s(CT2A(m_lf.lfFaceName),strlen("Arial")+1, "Arial");        
 
 	// text
 	m_charsetDListBase2D = 0;
@@ -447,11 +447,12 @@ void CViewGL::OnDestroy()
 	if (m_hRC!=NULL) ::wglDeleteContext(m_hRC);
 
 
-	// destroy Win Device Context
-	//if(m_pDC) delete m_pDC;
-
 	// finally call the base function
 	CView::OnDestroy();	
+
+	// destroy Win Device Context
+	if (m_pDC != nullptr)
+		delete m_pDC;
 }
 
 void CViewGL::OnSize(UINT nType, int cx, int cy)
@@ -613,7 +614,7 @@ void CViewGL::OnInitialUpdate()
 	CInv3DDoc* pDoc = GetDocument();
 	CInvFcs* pInv;
 	pInv = pDoc->GetInvFcs();
-	if( pDoc->m_pModel!=NULL) {
+	if( !pDoc->m_model.empty() ) {
 		m_minX = pDoc->m_xMin;
 		m_maxX = pDoc->m_xMax; 
 
@@ -683,7 +684,7 @@ void CViewGL::OnDraw(CDC* pDC)
 	wglMakeCurrent(m_pDC->GetSafeHdc(), m_hRC);
 
 	// clear background
-	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+	glClearColor(.8f, .8f, .8f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	// call the virtual drawing procedure (to be overridden by user)
@@ -706,7 +707,7 @@ void CViewGL::OnDraw(CDC* pDC)
 		// get the error descritption from OGL
 		estring = gluErrorString(m_glErrorCode);
 		// prepare and show a message box
-		mexstr.Format(_T("GLEnabledView:\n\tAn OpenGL error occurred: %s\n"), estring);
+		mexstr.Format(_T("GLEnabledView:\n\tAn OpenGL error occurred: %s\n"), CString(estring).GetBuffer());
 		AfxMessageBox(mexstr,MB_OK | MB_ICONEXCLAMATION);
 		// replicate mex to debug trace
 		TRACE(mexstr);
@@ -1394,7 +1395,7 @@ void CViewGL::DrawLegend(int x, int y, int w, int h, double minData, double maxD
 
 		glColor4d(0.0, 0.0, 0.1, 1.0);
 		glRasterPos3d(0.01, 0.1, 0);
-		Text2D(strName);	
+		Text2D(CStringA(strName));	
 
 		double min, max, maxFld, step, start, sc, of;
 		int nTicks = 6;
@@ -1436,7 +1437,7 @@ void CViewGL::DrawLegend(int x, int y, int w, int h, double minData, double maxD
 
 				// 2D text
 				glRasterPos3d(0.14, ytxt, 0);
-				Text2D(str);	
+				Text2D(CStringA(str));	
 			}
 			yn = yv+step/2.0;
 			if(yn>=min) {
@@ -1452,7 +1453,7 @@ void CViewGL::DrawLegend(int x, int y, int w, int h, double minData, double maxD
 
 				// 2D text
 				glRasterPos3d(0.12, ytxt, 0);
-				Text2D(str);	
+				Text2D(CStringA(str));	
 			}
 			yv += step;
 		}
@@ -1625,7 +1626,8 @@ void CViewGL::DrawCoordSys(void)
 			gluQuadricNormals(pCone, GLU_SMOOTH);
 		glPopMatrix();
 
-		delete pColor;
+#pragma warning(suppress: 6283)
+		delete [] pColor;
 		glColor3f(1.0f, 1.0f, 1.0f);
 	glPopMatrix();
 
@@ -1730,7 +1732,7 @@ void CViewGL::DrawModelPrism(void)
 		gluQuadricNormals(pCone, GLU_SMOOTH);
 	glPopMatrix();
 
-	delete pColor;
+	delete [] pColor;
 	glColor3f(1.0f, 1.0f, 1.0f);
 }
 
@@ -1799,7 +1801,7 @@ void CViewGL::DrawAxisLabels(void)
 		// 2D text
 		if( m_nTextType == GLTXT_2D ) {
 			glRasterPos3d(x, m_minY, m_maxZ);
-			Text2D(str);	
+			Text2D(CStringA(str));	
 		}// Print GL Text To The Screen
 
 		x += m_stepXl;
@@ -1831,7 +1833,7 @@ void CViewGL::DrawAxisLabels(void)
 		// 2D text
 		if( m_nTextType == GLTXT_2D ) {
 			glRasterPos3d(m_minX, y, m_maxZ);
-			Text2D(str);							// Print GL Text To The Screen
+			Text2D(CStringA(str));							// Print GL Text To The Screen
 		}
 
 		y +=m_stepYl;
@@ -1872,7 +1874,7 @@ void CViewGL::DrawAxisLabels(void)
 		// 2D text
 		if( m_nTextType == GLTXT_2D ) {
 			glRasterPos3d(m_minX, m_minY, z);
-			Text2D(str);							// Print GL Text To The Screen
+			Text2D(CStringA(str));							// Print GL Text To The Screen
 		}
 		z +=m_stepZl;
 	}
@@ -2092,7 +2094,7 @@ end:
 	font.DeleteObject();
 };
 
-GLvoid	CViewGL::Text2D(CString str)
+GLvoid	CViewGL::Text2D(CStringA str)
 {
 	int textlen=0;
 
@@ -2102,7 +2104,7 @@ GLvoid	CViewGL::Text2D(CString str)
 		{
 			// output the outlines corresponding to the requested text srting
 			glListBase(m_charsetDListBase2D);
-			glCallLists(textlen, GL_UNSIGNED_BYTE, LPCTSTR(str));
+			glCallLists(textlen, GL_UNSIGNED_BYTE, str.GetBuffer());
 		}
 	}
 	else TRACE(_T("CGLEnabledView::Text2D:\n\tNo charset available. Use PrepareCharset2D routines first.\n"));
@@ -2335,7 +2337,7 @@ void CViewGL::OnViewSliceNext()
 
 	if( m_nSliceSel>=0 && m_nSliceSel<m_slices.GetCount() ) {
 		CSlice3D* pSlc = m_slices.GetAt(m_nSliceSel);
-		int max;
+		int max=0;
 		switch( pSlc->GetType() ) {
 			case 0: // xz
 				max = m_pDoc->m_nY;

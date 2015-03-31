@@ -607,7 +607,7 @@ BOOL CGrid::New(CString strFilePath, int nType, DWORD row, DWORD col, double x0,
 
 BOOL CGrid::Open()
 {
-	BOOL bOK;
+	BOOL bOK=FALSE;
 
 	if( !IsEmpty() ) {
 		int ret = AfxMessageBox(_T("Grid is not empty! Replace?"), MB_YESNO | MB_ICONQUESTION);
@@ -671,7 +671,7 @@ BOOL CGrid::Open(CString strFilePath, int nType)
 
 BOOL CGrid::Save()
 {
-	BOOL bOK;
+	BOOL bOK=FALSE;
 
 	if(!IsEmpty()) {
 		switch(m_nType) {
@@ -698,7 +698,7 @@ BOOL CGrid::Save()
 
 BOOL CGrid::SaveAs()
 {
-	BOOL bOK;
+	BOOL bOK=FALSE;
 
 	if(!IsEmpty()) {
 		CFileDialog dlg(FALSE, _T("grd"), _T("*.grd"), OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT, _T("Surfer 6.0 Grid (*.grd)|*.grd|Surfer 7.0 Grid (*.grd)|*.grd|Geosoft Grid (*.grd)|*.grd||"));
@@ -831,8 +831,8 @@ BOOL CGrid::OpenSrf7Grid(CString strFileName)
 	// header section	0x42525344 hex	
 	long	nId, nSize, nVersion;
 	// grid section		0x44495247 hex
-	long	nGRow, nGCol;
-	double	xLL, yLL, xSize, ySize, zMin, zMax, dRotation, dBlank;
+	long	nGRow=0, nGCol=0;
+	double	xLL=0, yLL=0, xSize=0, ySize=0, zMin=0, zMax=0, dRotation=0, dBlank=0;
 
 	CFile file;
 	file.Open(strFileName, CFile::modeRead);
@@ -909,8 +909,8 @@ GridInfo CGrid::ReadSrf7Info(CString strFilePath)
 	// header section	0x42525344 hex	
 	long	nId, nSize, nVersion;
 	// grid section		0x44495247 hex
-	long	nGRow, nGCol;
-	double	xLL, yLL, xSize, ySize, zMin, zMax, dRotation, dBlank;
+	long	nGRow=0, nGCol=0;
+	double	xLL=0, yLL=0, xSize=0, ySize=0, zMin=0, zMax=0, dRotation=0, dBlank=0;
 	GridInfo gi;
 
 	CFile file;
@@ -1018,13 +1018,13 @@ BOOL CGrid::SaveSrf7Grid(CString strFileName)
 BOOL CGrid::OpenSrf6Grid(CString strFilePath)
 {
 	// surfer 6 grid
-	char	id[4];
+	char	id[5];
 	short	nx, ny;
 	double	xlo, xhi, ylo, yhi, zlo, zhi;
 
 	CFile file;
 	if( file.Open(strFilePath, CFile::modeRead) ) {
-		file.Read(&id, 4);
+		file.Read(&id, 4); id[4] = '\0';
 		if(strstr(id, "DSBB") != NULL) {
 			file.Read(&nx, 2);
 			file.Read(&ny, 2);
@@ -1407,7 +1407,6 @@ void CGrid::SetValue(double val)
 
 int CGrid::SetValueEx(double val, int tag)
 {
-	ASSERT(tag!=-1 || tag!=1);
 	double v;
 	int n=0;
 
@@ -2264,7 +2263,7 @@ int CGrid::ComputeHistogram(void)
 		}
 		m_clrGrad.SetHstMin(dMinHst);
 		m_clrGrad.SetHstMax(dMaxHst);
-		if(m_dMinHstCst==DUMMY || m_dMinHstCst==DUMMY ) {
+		if(m_dMinHstCst==DUMMY || m_dMaxHstCst==DUMMY ) {
 			m_dMinHstCst = dMinHst;
 			m_dMaxHstCst = dMaxHst;
 		}
@@ -2385,8 +2384,8 @@ int CGrid::ReadType(CString strFilePath)
 	if( file.Open(strFilePath, CFile::modeRead) ) {
 
 		// srf binary grid
-		char id[4];
-		file.Read(&id, 4);
+		char id[5];
+		file.Read(&id, 4); id[4] = '\0';
 		if(strstr(id, "DSBB") != NULL) {
 			file.Close();
 			return SRF_6;
@@ -2463,10 +2462,11 @@ BOOL CGrid::GetRowColMax(int& row, int& col)
 // pCopy MUST be of the same size
 void CGrid::CopyData(double** pCopy)
 {
-	ASSERT(pCopy!=NULL);
+	ASSERT(pCopy!=nullptr);
 
 	for(DWORD i = 0; i < m_nRow; i++) {
 		for(DWORD j = 0; j < m_nCol; j++) {
+#pragma warning(suppress: 6011)
 			pCopy[i][j] = m_pData[i][j];
 		}
 	}
@@ -2497,7 +2497,9 @@ int CGrid::DummyDataEx(CGrid* pGrdCompare, int tag)
 	double** data;
 
 	data = pGrdCompare->GetData();
-	ASSERT(data!=NULL);
+	if (data == nullptr)
+		return 0;
+	ASSERT(data!=nullptr);
 
 	int n=0;
 	for(DWORD i = 0; i < m_nRow; i++) {
@@ -2579,7 +2581,7 @@ int CGrid::Blank(void)
 	CString		strFilePath = dlg.GetPathName();
 	CStdioFile	file;
 	CString		strLine;
-	int			nItems, len, tag;
+	int			nItems, len, tag=0;
 	float		d[5];
 	DoubleArray	plg;
 	BOOL		bData = FALSE;

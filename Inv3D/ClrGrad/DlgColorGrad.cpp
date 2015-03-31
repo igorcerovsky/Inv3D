@@ -208,7 +208,7 @@ void CDlgColorGrad::OnNotifyChangeSelPeg(NMHDR * pNotifyStruct, LRESULT *result)
 		case ENDPEG: append = _T(" [End Peg]"); break;
 		default: append = _T(""); break;
 		}
-		str.Format(_T("Selected Peg - ID %d%s"), pPegNotifyStruct->index, append);
+		str.Format(_T("Selected Peg - ID %d%s"), pPegNotifyStruct->index, append.GetBuffer());
 		GetDlgItem(IDC_SELPEG)->SetWindowText(str);
 	}
 
@@ -308,7 +308,7 @@ void CDlgColorGrad::OnChangeSelpegPosition()
 	case ENDPEG: append = _T(" [End Peg]"); break;
 	default: append = _T(""); break;
 	}
-	str.Format(_T("Selected Peg - ID %d%s"), newsel, append);
+	str.Format(_T("Selected Peg - ID %d%s"), newsel, append.GetBuffer());
 	GetDlgItem(IDC_SELPEG)->SetWindowText(str);
 
 	//UpdateFirePalette();		

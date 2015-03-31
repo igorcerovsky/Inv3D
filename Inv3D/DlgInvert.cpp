@@ -21,10 +21,10 @@ extern UINT	g_nItrHistory;
 IMPLEMENT_DYNAMIC(CDlgInvert, CDialog)
 CDlgInvert::CDlgInvert(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgInvert::IDD, pParent)
-	, m_nCgIter(500)
-	, m_dCgEps(1.0e-12)
+	, m_nCgIter(200)
+	, m_dCgEps(1.0e-9)
 	, m_nCgRestart(1)
-	, m_nFcsIter(16)
+	, m_nFcsIter(8)
 	, m_dFcsPow(2.0)
 	, m_bFcsDiskStorage(FALSE)
 	, m_pInvFcs(NULL)
@@ -35,7 +35,7 @@ CDlgInvert::CDlgInvert(CWnd* pParent /*=NULL*/)
 	, m_nInvertType(1)
 	, m_bSaveWhileIter(TRUE)
 	, m_dRegMiu(0.5)
-	, m_nOpacity(180)
+	, m_nOpacity(255)
 	, m_bTranspAlpha(TRUE)
 	, m_bTranspColor(FALSE)
 {
@@ -106,8 +106,8 @@ void CDlgInvert::OnBnClickedInvert()
 		m_progressInit.SetPos(0);
 
 		// set inversion parameters
-		if(g_pItrHistory!=NULL)
-			delete g_pItrHistory;
+		if(g_pItrHistory!=nullptr)
+			delete [] g_pItrHistory;
 		g_pItrHistory = new ITRHST[(m_nCgIter+1)*m_nFcsIter];
 		g_nItrHistory = 0;
 

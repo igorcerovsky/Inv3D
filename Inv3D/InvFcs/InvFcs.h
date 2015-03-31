@@ -10,7 +10,8 @@
 */
 
 #pragma once
-#include "afx.h"
+//#include "stdafx.h"
+#include <memory>
 #include "voxelfld.h"
 
 typedef struct ItrHistory{

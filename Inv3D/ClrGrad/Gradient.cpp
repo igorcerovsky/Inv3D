@@ -184,8 +184,10 @@ void CGradient::Make8BitPalette(RGBTRIPLE *lpPal)
 void CGradient::MakePalette(CPalette *lpPal)
 {
 	RGBTRIPLE *entries = new RGBTRIPLE[256];
-	LOGPALETTE *logpal;
+	LOGPALETTE *logpal=nullptr;
 	logpal = (LOGPALETTE*)malloc(2*sizeof(WORD) + 256*sizeof(PALETTEENTRY));
+	if (logpal == nullptr)
+		return;
 
 	lpPal->DeleteObject();
 

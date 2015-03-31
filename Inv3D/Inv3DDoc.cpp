@@ -37,7 +37,6 @@ END_MESSAGE_MAP()
 
 CInv3DDoc::CInv3DDoc()
 {
-	m_pModel = NULL;
 	m_nModels = -1;
 
 	//!!!!
@@ -46,11 +45,6 @@ CInv3DDoc::CInv3DDoc()
 
 CInv3DDoc::~CInv3DDoc()
 {
-	if (m_pModel != nullptr)
-	{
-		delete m_pModel;
-		m_pModel = nullptr;
-	}
 }
 
 BOOL CInv3DDoc::OnNewDocument()
@@ -147,8 +141,7 @@ void CInv3DDoc::OnUpdateModelInvert(CCmdUI *pCmdUI)
 
 int CInv3DDoc::ImportModel(CString strFilePath, BOOL bAppend)
 {
-	CFile file;
-	file.Open(strFilePath, CFile::modeRead);
+	CFile file(strFilePath, CFile::modeRead);
 
 	int		tag;
 	int		nTmp;
@@ -192,17 +185,18 @@ int CInv3DDoc::ImportModel(CString strFilePath, BOOL bAppend)
 	int nModelsOld = m_nModels;
 	if(!bAppend || m_nModels==-1) {
 		m_nModels = 0;
-		if(m_pModel != NULL) {
-			for(int i=0; i<100; i++) {
-				if(m_pModel[i] != NULL){
-					delete[] m_pModel[i];
-				}
-			}
-			delete[] m_pModel;
-		}
-		m_pModel = new double*[100];
-		for(int i=0; i<100; i++)
-			m_pModel[i]=NULL;
+		m_model.clear();
+		//if(m_pModel != NULL) {
+		//	for(int i=0; i<100; i++) {
+		//		if(m_pModel[i] != NULL){
+		//			delete[] m_pModel[i];
+		//		}
+		//	}
+		//	delete[] m_pModel;
+		//}
+		//m_pModel = new double*[100];
+		//for(int i=0; i<100; i++)
+		//	m_pModel[i]=NULL;
 	}
 	UINT nModSize = m_nX*m_nZ*m_nY;
 	do {
@@ -211,16 +205,19 @@ int CInv3DDoc::ImportModel(CString strFilePath, BOOL bAppend)
 			file.Read(&tag, sizeof(int));
 		file.Read(&nSize, sizeof(UINT));
 
-		if(m_pModel[m_nModels] != NULL)
-			delete[] m_pModel[m_nModels];
+		//if(m_pModel[m_nModels] != NULL)
+		//	delete[] m_pModel[m_nModels];
 
-		m_pModel[m_nModels] = new double[nModSize];
+		//m_pModel[m_nModels] = new double[nModSize];
+		m_model.emplace_back( std::vector<double>(nModSize) );
 
 		ASSERT(nSize==nModSize);
-		nRead = file.Read(m_pModel[m_nModels], nSize*sizeof(double));
+		//nRead = file.Read(m_pModel[m_nModels], nSize*sizeof(double));
+		nRead = file.Read(m_model.back().data(), nSize*sizeof(double));
 		if(nRead==0) {
-			delete[] m_pModel[m_nModels];
-			m_pModel[m_nModels] = NULL;
+			//delete[] m_pModel[m_nModels];
+			//m_pModel[m_nModels] = NULL;
+			m_model.pop_back();
 		}
 		m_nModels++;
 	} while(nRead!=0);
@@ -263,8 +260,9 @@ int CInv3DDoc::DeleteModels(int first, int last)
 
 	int j=0;
 	for(int i=first; i<=last; i++) {
-		delete m_pModel[i];
-		m_pModel[i]=NULL;
+		//delete m_pModel[i];
+		//m_pModel[i]=NULL;
+		m_model.at(i).clear();
 		j++;
 	}
 	m_nModels=1;

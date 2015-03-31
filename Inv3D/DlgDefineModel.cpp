@@ -6,7 +6,7 @@
 #include "DlgDefineModel.h"
 #include "DlgForwardModel.h"
 #include "DlgPenal.h"
-
+#include "Grid\Grid.h"
 
 // CDlgDefineModel dialog
 
@@ -67,6 +67,7 @@ BEGIN_MESSAGE_MAP(CDlgDefineModel, CDialog)
 	ON_BN_CLICKED(IDC_MOD_TYPE, OnBnClickedModType)
 	ON_BN_CLICKED(IDC_MOD_TYPE_3D, OnBnClickedModType3d)
 	ON_BN_CLICKED(IDC_PENALIZATION, OnBnClickedPenalization)
+	ON_BN_CLICKED(IDC_BROWSE_MODEL, &CDlgDefineModel::OnBnClickedBrowseModel)
 END_MESSAGE_MAP()
 
 BOOL CDlgDefineModel::OnInitDialog()
@@ -147,7 +148,7 @@ void CDlgDefineModel::OnBnClickedCreateModel()
 	SetDlgItemText(IDC_MEM_TOTAL, _T(""));
 	SetDlgItemText(IDC_MEM_OTHER, _T(""));
 
-	AfxMessageBox(_T("New model has been created."), MB_OK | MB_ICONINFORMATION);
+	//AfxMessageBox(_T("New model has been created."), MB_OK | MB_ICONINFORMATION);
 }
 
 void CDlgDefineModel::OnBnClickedForwardModel()
@@ -330,4 +331,19 @@ void CDlgDefineModel::OnBnClickedPenalization()
 
 	dlg.m_pInvFcs = m_pInvFcs;
 	dlg.DoModal();
+}
+
+
+void CDlgDefineModel::OnBnClickedBrowseModel()
+{
+	CGrid grd;
+	grd.Open();
+	m_nX = grd.GetCols();
+	m_nY = grd.GetRows();
+	m_x0 = grd.GetX0();
+	m_y0 = grd.GetY0();
+	m_xCs = grd.GetXSize();
+	m_yCs = grd.GetYSize();
+
+	UpdateData(FALSE);
 }

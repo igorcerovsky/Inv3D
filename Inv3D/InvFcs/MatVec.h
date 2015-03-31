@@ -9,6 +9,7 @@
 
 #include <lu.h>
 
+
 //global variables about computing
 UINT	g_nIter;
 double	g_dResid;
@@ -373,6 +374,12 @@ inline void CopyVec(double* dest, double* src, int n)
 inline void ZeroVec(double* a, int n)
 {
 	memset((void*)a, 0, n*sizeof(double));
+}
+
+// zero vector
+template<typename T> void ZeroVec(const std::unique_ptr<T> a, int n)
+{
+	memset((void*)a, 0, n*sizeof(T));
 }
 
 // one norm

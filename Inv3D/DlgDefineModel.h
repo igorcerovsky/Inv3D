@@ -53,4 +53,5 @@ protected:
 	virtual void OnOK();
 public:
 	afx_msg void OnBnClickedPenalization();
+	afx_msg void OnBnClickedBrowseModel();
 };

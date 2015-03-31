@@ -107,12 +107,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ColorButton\ColorButton.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ColorButton\ColourPopup.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="ChildFrm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -204,6 +198,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorButton\ColorButton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorButton\ColourPopup.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

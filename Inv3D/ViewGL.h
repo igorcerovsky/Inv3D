@@ -36,7 +36,7 @@ protected: // create from serialization only
 
 //***********************************************************************************
 private:
-	CDC*	m_pDC;	// WinGDI Device Context
+	CClientDC*	m_pDC;	// WinGDI Device Context
 	HGLRC	m_hRC;	// OpenGL Rendering Context
 	BOOL	m_bExternGLCall;
 	BOOL	m_bExternDispListCall;
@@ -168,7 +168,7 @@ public:
 
 	// 2D text
 	GLvoid	PrepareCharset2D(const LOGFONT* pLf);
-	GLvoid	Text2D(CString str);
+	GLvoid	Text2D(CStringA str);
 
 	// 3D text
 	void	PrepareCharset3D(const LOGFONT* pLf, float extrusion, BOOL uselines=false, float precision=0.01f);

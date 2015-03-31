@@ -40,7 +40,7 @@ END_MESSAGE_MAP()
 void CDlgSlice::OnBnClickedOk()
 {
 	UpdateData();
-	int max;
+	int max=0;
 	switch(m_nType) {
 		case 0: // xz
 			max = m_nProfileMaxXZ;

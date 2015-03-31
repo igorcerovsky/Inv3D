@@ -13,8 +13,8 @@ CDlgForwardModel::CDlgForwardModel(CWnd* pParent /*=NULL*/)
 	: CDialog(CDlgForwardModel::IDD, pParent)
 	, m_nPtsX(0)
 	, m_nPtsY(0)
-	, m_dPtsElev(10)
-	, m_dPtsNoise(2)
+	, m_dPtsElev(0.0)
+	, m_dPtsNoise(1.0)
 	, m_nMinX(4)
 	, m_nMinY(4)
 	, m_nMinZ(2)
@@ -91,6 +91,8 @@ BOOL CDlgForwardModel::OnInitDialog()
 	if(m_pInvFcs->GetModelType() == CInvFcs::inv3D) {
 		int nz;
 		m_pInvFcs->GetModelSize(m_nPtsX, m_nPtsY, nz);
+		m_nPtsX++;
+		m_nPtsY++;
 	}
 	UpdateData(FALSE);
 
@@ -155,7 +157,7 @@ void CDlgForwardModel::OnBnClickedSetModel()
 	CWnd* pWnd = GetDlgItem(IDC_INIT_MOD);
 	pWnd->EnableWindow(TRUE);
 
-	AfxMessageBox(_T("New model values were set."), MB_OK | MB_ICONINFORMATION);
+	//AfxMessageBox(_T("New model values were set."), MB_OK | MB_ICONINFORMATION);
 }
 
 void CDlgForwardModel::OnBnClickedInitMod()
@@ -163,7 +165,7 @@ void CDlgForwardModel::OnBnClickedInitMod()
 	m_pInvFcs->InitForwardModelComp();
 	CWnd* pWnd = GetDlgItem(IDC_ADD_NOISE);
 	pWnd->EnableWindow();
-	AfxMessageBox(_T("Forward model is computed."), MB_OK | MB_ICONINFORMATION);
+	//AfxMessageBox(_T("Forward model is computed."), MB_OK | MB_ICONINFORMATION);
 }
 
 void CDlgForwardModel::OnBnClickedAddNoise()
@@ -172,6 +174,6 @@ void CDlgForwardModel::OnBnClickedAddNoise()
 	int ret = AfxMessageBox(_T("All the original data will be lost! Continue?"), MB_YESNO | MB_ICONQUESTION);
 	if( ret!=IDYES ) return;
 	m_pInvFcs->AddNoise( m_dPtsNoise/100.0 );
-	AfxMessageBox(_T("Data are noisy."), MB_OK | MB_ICONINFORMATION);
+	//AfxMessageBox(_T("Data are noisy."), MB_OK | MB_ICONINFORMATION);
 }
 

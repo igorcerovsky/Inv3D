@@ -84,7 +84,7 @@ void CDlgPenal::OnBnClickedSetPenval()
 	}
 	m_pInvFcs->SetPenalization(m_nMinX, m_nMaxX, m_nMinY, m_nMaxY, m_nMinZ, m_nMaxZ, m_dPenMin, m_dPenMax );
 
-	AfxMessageBox(_T("Penalization values were set."), MB_OK | MB_ICONINFORMATION);
+	//AfxMessageBox(_T("Penalization values were set."), MB_OK | MB_ICONINFORMATION);
 }
 
 void CDlgPenal::SaveRegistry(void)

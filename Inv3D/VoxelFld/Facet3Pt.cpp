@@ -790,7 +790,7 @@ void CFacet3Pt::FldSpherVlado(CPoint3D &v_r, CPoint3D &v_Grv)
 
 double CFacet3Pt::GetMeanElevation(void)
 {
-    return (pts[0].z + pts[1].z + pts[3].z)/3;
+    return (pts[0].z + pts[1].z + pts[2].z)/3;
 }
 
 BOOL CFacet3Pt::IsOposit(const CFacet3Pt &fct)

@@ -4,12 +4,18 @@
 #include "lu.h"
 #include "math.h"
 
+#ifdef _DEBUG
+#undef THIS_FILE
+static char THIS_FILE[] = __FILE__;
+#define new DEBUG_NEW
+#endif
+
 ////////////////////////////////////////////////////////////////////////////////////////////
 //------------ LU routines -----------------------------------------------------------------
 // matrix pA[n][n] is replaced by its LU decomposition on output
 int LUdecomp(double **pA, int n, __int32 *indx)
 {
-	int		i, imax, j, k;
+	int		i, imax=0, j, k;
 	double	big, dum, sum, temp;
 	double	*vv;
 	double	d;
@@ -42,6 +48,7 @@ int LUdecomp(double **pA, int n, __int32 *indx)
 				imax=i;
 			}
 		}
+#pragma warning(suppress: 6001)
 		if(j != imax) {
 			for(k=0; k<n; k++) {
 				dum = pA[imax][k];

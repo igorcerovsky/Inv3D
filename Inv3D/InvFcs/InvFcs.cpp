@@ -3,6 +3,13 @@
 #include "StdAfx.h"
 #include "invfcs.h"
 #include "MatVec.h"
+#include <thread>
+
+#ifdef _DEBUG
+#undef THIS_FILE
+static char THIS_FILE[] = __FILE__;
+#define new DEBUG_NEW
+#endif
 
 // global progress variable
 UINT	g_nFiter;
@@ -42,10 +49,18 @@ void CInvFcs::Destroy()
 {
 	if(m_pPts!=NULL) delete[] m_pPts;
 	if(m_pPen!=NULL) delete[] m_pPen;
+	if (pi != nullptr) delete[] pi;
 	if(m_pModFrw!=NULL) {
 		delete[] m_pModFrw;
 		m_pModFrw = NULL;
 	}
+	if (m_pModels != nullptr)
+	{
+		for (int i = 0; i < m_nFcsIter; i++) {
+			delete[] m_pModels[i];
+		}
+	}
+	delete[] m_pModels;
 
 	m_pPts = NULL;
 }
@@ -392,7 +407,10 @@ int CInvFcs::Allocate(BOOL bAlloc)
 			delete[] ps;
 			ps = NULL;
 		}
-
+		if (pi != nullptr) {
+			delete[] pi;
+			pi = nullptr;
+		}
 		if( pLU!=NULL ) {
 			for(int i=0; i<nN; i++) {
 				delete[] pLU[i];
@@ -678,7 +696,9 @@ void CInvFcs::InitMatrix3D(double** pA, int m, int n)
 	g_nInit = 0;
 	m_vox.Init();
 	// over matrix rows
-	for(int l=0; l<m; l++) {
+	unsigned concurentThreadsSupported = std::thread::hardware_concurrency();
+	#pragma omp parallel for num_threads(concurentThreadsSupported)
+	for (int l = 0; l<m; l++) {
 		xp = m_pPts[m_nFormat*l+0];
 		yp = m_pPts[m_nFormat*l+1];
 		zp = m_pPts[m_nFormat*l+2];
@@ -693,6 +713,7 @@ void CInvFcs::InitMatrix3D(double** pA, int m, int n)
 			} // for(i)
 		} // for(k)
 		// end over matrix columns
+		#pragma omp atomic
 		g_nInit++;
 	}	// for(l); matrix rows
 	g_nInit = m;
@@ -916,7 +937,7 @@ void CInvFcs::ComputeModel2D()
 		}
 	}
 }
-
+#include <omp.h>
 void CInvFcs::ComputeModel3D()
 {
 	int indx;
@@ -927,7 +948,8 @@ void CInvFcs::ComputeModel3D()
 	m_vox.Init();
 	g_nInit = 0;
 	// over matrix rows
-	for(int l=0; l<m_nPts; l++) {
+	#pragma omp parallel for num_threads(4)
+	for(int l=0; l<m_nPts; ++l) {
 		xp = m_pPts[m_nFormat*l+frmX];
 		yp = m_pPts[m_nFormat*l+frmY];
 		zp = m_pPts[m_nFormat*l+frmZ];

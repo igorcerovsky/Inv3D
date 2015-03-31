@@ -22,8 +22,8 @@ public:
 public:
 	// model
 	CInvFcs* GetInvFcs() {return &m_inv;}
-	double** m_pModel;		// model as 1D array, second dimension is for different degrees of focusing
-	//std::vector<std::vector<double>> m_model;
+	//double** m_pModel;		// model as 1D array, second dimension is for different degrees of focusing
+	std::vector<std::vector<double>> m_model;
 	int		m_nModels;		// number of models
 	int		m_nX;			// number of cells in x direction
 	int		m_nY;
@@ -45,8 +45,8 @@ public:
 	public:
 	virtual BOOL OnNewDocument();
 	virtual void Serialize(CArchive& ar);
-	BOOL	IsEmpty() {return m_pModel==NULL;}
-	//bool IsEmpty() { return m_model.empty(); }
+	//BOOL	IsEmpty() {return m_pModel==NULL;}
+	bool IsEmpty() { return m_model.empty(); }
 
 
 // Implementation
