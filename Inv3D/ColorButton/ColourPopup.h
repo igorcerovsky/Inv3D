@@ -1,6 +1,5 @@
 #ifndef COLOURPOPUP_INCLUDED
 #define COLOURPOPUP_INCLUDED
-#pragma once 
 
 #pragma once
 

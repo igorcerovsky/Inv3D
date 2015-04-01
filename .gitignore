@@ -36,3 +36,5 @@ ipch/*
 _iterHistoryCG.dat
 _iterHistoryFcs.dat
 Mtrx_*.bin
+*.psess
+*.vsp
