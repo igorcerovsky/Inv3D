@@ -4,9 +4,7 @@
 
 // Copyright Igor Cerovsky 2004
 
-#pragma once
-
-#include "lu.h"
+//#include "lu_decomp.h"
 #include "math.h"
 #include <memory>
 
@@ -862,7 +860,7 @@ inline void CGrectLU(double** pA, int m, int n, double* px, double* pb, double* 
 
 	//VecElemMult(ps, pM, pr, n);
 	CopyVec(ps, pr, n);
-	LUsolve(pM, ps, n, pIndx);
+	LU_solve(pM, ps, n, pIndx);
 
 	CopyVec(pd, ps, n);
 	dltOld=dltNew = Dot(pr, ps, n);
@@ -881,7 +879,7 @@ inline void CGrectLU(double** pA, int m, int n, double* px, double* pb, double* 
 
 		//VecElemMult(ps, pM, pr, n);
 		CopyVec(ps, pr, n);
-		LUsolve(pM, ps, n, pIndx);
+		LU_solve(pM, ps, n, pIndx);
 
 		dltOld = dltNew;
 		dltNew = Dot(pr, ps, n);

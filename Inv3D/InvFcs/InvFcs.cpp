@@ -1459,7 +1459,7 @@ void CInvFcs::Invert()
 	if( m_nInvType==invertPrecondLU ) {
 		m_bShrink = FALSE;
 		TranspAA(pA, pLU, nM, nN);
-		LUdecomp(pLU, nN, pLUi);
+		LU_decomp(pLU, nN, pLUi);
 	}
 
 	CopyVec(pxt, px, nN);
@@ -1631,10 +1631,10 @@ void CInvFcs::TestLU()
 
 	x1[0] = 1.0;	x1[1] = 1.0;	x1[2] = 1.0;
 
-	LUdecomp(pA, nN, pLUi);
+	LU_decomp(pA, nN, pLUi);
 
 	printf("original\n");
-	LUsolve(pA, x1, nN, pLUi);
+	LU_solve(pA, x1, nN, pLUi);
 	// output: x1[0]=0.0; x1[1]=0.0; x1[2]=0.33333; 
 	Allocate(FALSE);
 
@@ -1656,7 +1656,7 @@ void CInvFcs::TestLU()
 		TRACE("\n");
 	}
 
-	LUdecomp(pLU, nN, pLUi);
+	LU_decomp(pLU, nN, pLUi);
 
 	TRACE("\n");
 	for(int i=0; i<nN; i++) {
@@ -1665,7 +1665,7 @@ void CInvFcs::TestLU()
 		}
 		TRACE("\n");
 	}
-	LUsolve(pLU, x1, nN, pLUi);
+	LU_solve(pLU, x1, nN, pLUi);
 	// output: x1[0]=0.0; x1[1]=0.0; x1[2]=0.33333; 
 
 	int iter;

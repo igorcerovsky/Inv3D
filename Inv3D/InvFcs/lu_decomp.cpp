@@ -1,8 +1,8 @@
-#include "lu.h"
+#include "lu_decomp.h"
 #include "math.h"
 
 // matrix pA[n][n] is replaced by its LU decomposition on output
-int LUdecomp(double **pA, int n, __int32 *indx)
+int LU_decomp(double **pA, int n, __int32 *indx)
 {
 	int		i, imax = 0, j, k;
 	double	big, dum, sum, temp;
@@ -59,7 +59,7 @@ int LUdecomp(double **pA, int n, __int32 *indx)
 	return 1;
 }
 
-void LUsolve(double **pA, double* b, int n, __int32 *indx)
+void LU_solve(double **pA, double* b, int n, __int32 *indx)
 {
 	int		i, ii = 0, ip, j;
 	double	sum;

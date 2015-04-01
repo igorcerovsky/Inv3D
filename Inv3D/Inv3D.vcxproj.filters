@@ -99,10 +99,10 @@
     <ClCompile Include="VoxelFld\VoxelFld.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="InvFcs\lu.cpp">
+    <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="stdafx.cpp">
+    <ClCompile Include="InvFcs\lu_decomp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -194,9 +194,6 @@
     <ClInclude Include="ClrGrad\gradientctrl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="InvFcs\lu.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -204,6 +201,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ColorButton\ColourPopup.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InvFcs\lu_decomp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
