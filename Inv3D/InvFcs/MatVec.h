@@ -4,8 +4,8 @@
 
 // Copyright Igor Cerovsky 2004
 
-//#include "lu_decomp.h"
-#include "math.h"
+#include "lu_decomp.h"
+#include <math.h>
 #include <memory>
 
 
