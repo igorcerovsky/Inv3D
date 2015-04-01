@@ -696,8 +696,6 @@ void CInvFcs::InitMatrix3D(double** pA, int m, int n)
 	g_nInit = 0;
 	m_vox.Init();
 	// over matrix rows
-	unsigned concurentThreadsSupported = std::thread::hardware_concurrency();
-	#pragma omp parallel for num_threads(concurentThreadsSupported)
 	for (int l = 0; l<m; l++) {
 		xp = m_pPts[m_nFormat*l+0];
 		yp = m_pPts[m_nFormat*l+1];
@@ -713,7 +711,6 @@ void CInvFcs::InitMatrix3D(double** pA, int m, int n)
 			} // for(i)
 		} // for(k)
 		// end over matrix columns
-		#pragma omp atomic
 		g_nInit++;
 	}	// for(l); matrix rows
 	g_nInit = m;
@@ -896,7 +893,6 @@ void CInvFcs::InitForwardModel(BOOL bDestroyFrwModel)
 	if(bDestroyFrwModel) 
 		DestroyFrwModel();
 }
-//________________________________________________________________________________
 /*
 	computes forvard model from defined inversion model
 	fills the measurement points
@@ -937,7 +933,8 @@ void CInvFcs::ComputeModel2D()
 		}
 	}
 }
-#include <omp.h>
+
+
 void CInvFcs::ComputeModel3D()
 {
 	int indx;
@@ -948,7 +945,6 @@ void CInvFcs::ComputeModel3D()
 	m_vox.Init();
 	g_nInit = 0;
 	// over matrix rows
-	#pragma omp parallel for num_threads(4)
 	for(int l=0; l<m_nPts; ++l) {
 		xp = m_pPts[m_nFormat*l+frmX];
 		yp = m_pPts[m_nFormat*l+frmY];
@@ -970,7 +966,9 @@ void CInvFcs::ComputeModel3D()
 		// end over matrix columns
 	}	// for(l); matrix rows
 }
-//________________________________________________________________________________
+
+
+
 void CInvFcs::AddNoise(double noise)
 {
 	double min, max, rnd;
@@ -989,7 +987,8 @@ void CInvFcs::AddNoise(double noise)
 	}
 
 }
-//________________________________________________________________________________
+
+
 int CInvFcs::FldToGrd(double** pGrd)
 {
 	ASSERT(m_pPts!=NULL && pGrd!=NULL);

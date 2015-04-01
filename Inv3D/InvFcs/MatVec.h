@@ -1,13 +1,15 @@
+#ifndef MAT_VEC_H_
+#define MAT_VEC_H_
 // Matrix - vector algebra
 
 // Copyright Igor Cerovsky 2004
 
 #pragma once
 
+#include "lu.h"
 #include "math.h"
-#include <memory.h>
+#include <memory>
 
-#include <lu.h>
 
 
 //global variables about computing
@@ -906,3 +908,4 @@ inline void CGrectLU(double** pA, int m, int n, double* px, double* pb, double* 
 }
 
 
+#endif //MAT_VEC_H_
