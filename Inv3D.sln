@@ -17,6 +17,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pt_vec", "..\pt_vec\pt_vec.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pfld_UnitTest", "..\pfld_UnitTest\UnitTest_pfd.vcxproj", "{C1BC0A26-237E-48B3-92B3-8D0F7CD79535}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Inv3D_UnitTest", "Inv3D_UnitTest\Inv3D_UnitTest.vcxproj", "{A2A37A1A-CB36-4282-9380-CB4D74D6CB6D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -81,6 +83,16 @@ Global
 		{C1BC0A26-237E-48B3-92B3-8D0F7CD79535}.Release|Win32.Build.0 = Release|Win32
 		{C1BC0A26-237E-48B3-92B3-8D0F7CD79535}.Release|x64.ActiveCfg = Release|x64
 		{C1BC0A26-237E-48B3-92B3-8D0F7CD79535}.Release|x64.Build.0 = Release|x64
+		{A2A37A1A-CB36-4282-9380-CB4D74D6CB6D}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{A2A37A1A-CB36-4282-9380-CB4D74D6CB6D}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{A2A37A1A-CB36-4282-9380-CB4D74D6CB6D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A2A37A1A-CB36-4282-9380-CB4D74D6CB6D}.Debug|Win32.Build.0 = Debug|Win32
+		{A2A37A1A-CB36-4282-9380-CB4D74D6CB6D}.Debug|x64.ActiveCfg = Debug|Win32
+		{A2A37A1A-CB36-4282-9380-CB4D74D6CB6D}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{A2A37A1A-CB36-4282-9380-CB4D74D6CB6D}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{A2A37A1A-CB36-4282-9380-CB4D74D6CB6D}.Release|Win32.ActiveCfg = Release|Win32
+		{A2A37A1A-CB36-4282-9380-CB4D74D6CB6D}.Release|Win32.Build.0 = Release|Win32
+		{A2A37A1A-CB36-4282-9380-CB4D74D6CB6D}.Release|x64.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

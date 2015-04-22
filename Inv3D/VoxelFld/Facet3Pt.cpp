@@ -2,17 +2,16 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
-#include "PotField.h"
+//#include "PotField.h"
 #include "Facet3Pt.h"
 #include "Body.h"
 #include <math.h>
 
-#ifdef _DEBUG
-#undef THIS_FILE
-static char THIS_FILE[]=__FILE__;
-#define new DEBUG_NEW
-#endif
+//#ifdef _DEBUG
+//#undef THIS_FILE
+//static char THIS_FILE[]=__FILE__;
+//#define new DEBUG_NEW
+//#endif
 
 #define EPS	1.0e-12
 #define PI 3.1415926535897932384626433832795

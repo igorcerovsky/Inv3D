@@ -2318,7 +2318,6 @@ int CGrid::CreateColorTableGL(FloatArray& fA, int n, int nFormat, int nClrTable,
 	// number of elements in pTbl = n*nFormat; nFormat must be 3, 4
 	// n MUST be power of 2
 	//
-	TRACE(_T("Entering CGrid::CreateColorTableGL(int n)\n"));
 
 	if( (nFormat!=3) && (nFormat!=4) ) {
 		AfxMessageBox(_T("Invalid format in Grid::CreateColorTableGL(...)"));

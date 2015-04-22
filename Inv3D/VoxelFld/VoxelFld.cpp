@@ -1,16 +1,14 @@
 // C:\! Igor\Inv3D\Inv3D\VoxelFld\VoxelFld.cpp : implementation file
 //
 
-#include "stdafx.h"
 #include "VoxelFld.h"
 #include "point3d.h"
 
-#ifdef _DEBUG
-#undef THIS_FILE
-static char THIS_FILE[] = __FILE__;
-#define new DEBUG_NEW
-#endif
-
+//#ifdef _DEBUG
+//#undef THIS_FILE
+//static char THIS_FILE[] = __FILE__;
+//#define new DEBUG_NEW
+//#endif
 // CVoxelFld
 
 CVoxelFld::CVoxelFld()
@@ -233,7 +231,3 @@ void CVoxelFld::FldGrav(double rx, double ry, double rz, double& gz)
 	gz += vg.z;
 }
 
-void CVoxelFld::FldGrav(double rx, double ry, double rz, double& gx, double& gy, double& gz)
-{
-	ASSERT(0);
-}

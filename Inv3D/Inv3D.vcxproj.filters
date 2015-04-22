@@ -13,6 +13,9 @@
       <UniqueIdentifier>{30741efa-90eb-48d1-8ac1-34af1fe12c65}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;jpg;jpeg;jpe;manifest</Extensions>
     </Filter>
+    <Filter Include="VoxelFld">
+      <UniqueIdentifier>{353686d3-f7c7-47b6-8f9b-0b374157ffaa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ChildFrm.cpp">
@@ -48,9 +51,6 @@
     <ClCompile Include="DlgSliceManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="VoxelFld\Facet3Pt.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GlSurface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -84,9 +84,6 @@
     <ClCompile Include="MyObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="VoxelFld\Point3D.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Routines.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -96,14 +93,20 @@
     <ClCompile Include="ViewGL.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="VoxelFld\VoxelFld.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="InvFcs\lu_decomp.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VoxelFld\VoxelFld.cpp">
+      <Filter>VoxelFld</Filter>
+    </ClCompile>
+    <ClCompile Include="VoxelFld\Point3D.cpp">
+      <Filter>VoxelFld</Filter>
+    </ClCompile>
+    <ClCompile Include="VoxelFld\Facet3Pt.cpp">
+      <Filter>VoxelFld</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -132,9 +135,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DlgSliceManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VoxelFld\Facet3Pt.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GlSurface.h">
@@ -173,9 +173,6 @@
     <ClInclude Include="MyObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="VoxelFld\Point3D.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -186,9 +183,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ViewGL.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VoxelFld\VoxelFld.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ClrGrad\gradientctrl.h">
@@ -205,6 +199,15 @@
     </ClInclude>
     <ClInclude Include="InvFcs\lu_decomp.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VoxelFld\Point3D.h">
+      <Filter>VoxelFld</Filter>
+    </ClInclude>
+    <ClInclude Include="VoxelFld\VoxelFld.h">
+      <Filter>VoxelFld</Filter>
+    </ClInclude>
+    <ClInclude Include="VoxelFld\Facet3Pt.h">
+      <Filter>VoxelFld</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

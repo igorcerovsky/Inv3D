@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "lu_decomp.h"
 #include "math.h"
 

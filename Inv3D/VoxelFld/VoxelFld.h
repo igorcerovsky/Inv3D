@@ -34,7 +34,6 @@ public:
 	void SetCentroid(double x, double y, double z)		{cx=x; cy=y; cz=z;}
 	void SetDimensions(double x, double y, double z)	{dx=x; dy=y; dz=z;}
 	void FldGrav(double rx, double ry, double rz, double& gz);
-	void FldGrav(double rx, double ry, double rz, double& gx, double& gy, double& gz);
 };
 
 

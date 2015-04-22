@@ -761,7 +761,6 @@ int CGradient::CreateColorTableGL(float* fA, const int n, const int nFormat, con
 	// number of elements in fA = n*nFormat; nFormat must be 3, 4
 	// n MUST be power of 2
 	//
-	TRACE("Entering CGrid::CreateColorTableGL(int n)\n");
 
 	ASSERT( nFormat==3 || nFormat==4 );
 	ASSERT( fA!=NULL );

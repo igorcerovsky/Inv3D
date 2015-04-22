@@ -5,7 +5,7 @@
 #pragma once
 
 #include "Point3D.h"
-#include "PotField.h"
+//#include "PotField.h"
 #include <afxtempl.h>
 #include "Facet3Pt.h"
 //#include "Grid.h"
